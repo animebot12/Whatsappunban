@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unban Your WhatsApp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <!-- Popup Style -->
+  <style>
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-content {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translate(-50%, -60%) scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .popup-content h2 {
+      margin: 0 0 15px;
+      font-size: 1.8em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-content p {
+      margin: 20px 0;
+      font-size: 1.1em;
+      line-height: 1.5;
+      color: #1a1a1a;
+    }
+
+    .popup-content button {
+      background: #1a1a1a;
+      border: none;
+      padding: 15px 30px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 25px;
+      color: #FFD700;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-content button:hover {
+      background: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #1a1a1a;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp Channel Popup -->
+  <div class="popup" id="whatsappPopup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">×</span>
+      <h2>Join WhatsApp Channel</h2>
+      <p>Stay ahead with exclusive updates! Subscribe now and never miss the latest news!</p>
+      <button onclick="window.open('https://chat.whatsapp.com/Bd3Yo93XEDCCcw2mi7jsB6', '_blank')">Join Now</button>
+    </div>
+  </div>
+
+  <!-- Your existing content goes here -->
+  <!-- ... -->
+
+  <script>
+    // Function to show the popup after a delay (e.g. 5 seconds)
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('whatsappPopup').style.display = 'block';
+      }, 100); // 100 milliseconds = 0.1 seconds
+    });
+
+    // Function to close the popup
+    function closePopup() {
+      document.getElementById('whatsappPopup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unban Your WhatsApp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    :root {
+      --primary-color: #00ff00;
+      --secondary-color: #000000;
+      --background-color: #000000;
+      --text-color: #00ff00;
+      --hover-color: rgba(0, 255, 0, 0.1);
+      --border-color: #00ff00;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      overflow: auto;
+      position: relative;
+    }
+
+    /* Matrix animation background */
+    canvas#matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      display: block;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 400px;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 0 20px #00ff00;
+      border: 2px solid var(--border-color);
+      text-align: center;
+    }
+
+    .header {
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 16px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--primary-color);
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary-color);
+      text-shadow: 0 0 8px var(--primary-color);
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--primary-color);
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      background: #111;
+      color: var(--text-color);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .input-field::placeholder {
+      color: #0f0;
+      opacity: 0.6;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 12px var(--primary-color);
+      background: #000;
+    }
+
+    .generate-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary-color);
+      border: none;
+      border-radius: 12px;
+      color: var(--secondary-color);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px var(--primary-color);
+    }
+
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 16px var(--primary-color);
+    }
+
+    .code-display {
+      background: #111;
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid var(--border-color);
+      color: var(--primary-color);
+      box-shadow: inset 0 0 8px #0f0;
+      white-space: pre-wrap;
+    }
+
+    .copy-btn {
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px var(--primary-color);
+    }
+
+    .copy-btn:hover {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      box-shadow: 0 0 20px var(--primary-color);
+    }
+
+    .error-message {
+      color: #ff3c3c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .success-message {
+      color: #0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .loading {
+      text-align: center;
+      margin: 16px 0;
+      color: var(--primary-color);
+      font-size: 22px;
+      display: none;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .social {
+      margin-top: 38px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      border: 1.5px solid var(--primary-color);
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 0 6px var(--primary-color);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .social a:hover {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      box-shadow: 0 0 14px var(--primary-color);
+    }
+
+    .social a i {
+      font-size: 18px;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: rgba(0, 255, 0, 0.4);
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+        border-radius: 12px;
+      }
+      .code-display {
+        font-size: 14px;
+        min-height: 90px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div class="container">
+    <div class="header">
+      <div class="logo"><i class="fas fa-lock-open"></i></div>
+      <h1 class="title">WhatsApp Unbaner</h1>
+      <p class="subtitle">BY-Mr.Arslan</p>
+    </div>
+
+    <div class="input-group">
+      <label class="input-label" for="mobileNumber">Unban your banded number easily. </label>
+      <input
+        type="text"
+        id="mobileNumber"
+        class="input-field"
+        placeholder="Enter Banded number with country code"
+        pattern="^\+?[1-9]\d{9,14}$"
+        title="Enter a valid phone number starting with + and country code"
+        autocomplete="off"
+      />
+    </div>
+
+    <button class="generate-btn" id="submit">
+      <i class="fas fa-paper-plane"></i> Send Unban Request
+    </button>
+
+    <div class="loading" id="loading">
+      <i class="fas fa-spinner"></i> Sending...
+    </div>
+
+    <div class="code-display" id="codeDisplay">
+      Your unban report will appear here
+    </div>
+
+    <button class="copy-btn" id="copy" onclick="copyReport()">
+      <i class="fas fa-copy"></i> Copy Report
+    </button>
+
+    <div class="social">
+      <a href="https://arslantoolkit.gt.tc" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-magnifying-glass"></i> Get More Tools
+      </a>
+      <a href="https://chat.whatsapp.com/Bd3Yo93XEDCCcw2mi7jsB6" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-telegram-plane"></i> Telegram
+      </a>
+      <a href="https://chat.whatsapp.com/Bd3Yo93XEDCCcw2mi7jsB6" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+
+    <div class="footer">
+      Developer Mr.Arslan
+    </div>
+A Pʀᴏᴊᴇᴄᴛ Oғ Mr.Arslan 
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // Matrix rain animation
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const letters = 'Mr.Arslan-OFFICIAL';
+    const fontSize = 18;
+    const columns = Math.floor(width / fontSize);
+
+    let drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.fillStyle = '#00ff00';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 50);
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      drops = Array(Math.floor(width / fontSize)).fill(1);
+    });
+
+    // Generate random unban report
+    function generateReport(number) {
+      const reasons = [
+        "I believe my account was mistakenly banned.",
+        "Please review my case as I have not violated any policies.",
+        "I am a loyal user and request a reconsideration of the ban.",
+        "My account was hacked and I need it restored urgently.",
+        "I have always followed WhatsApp's terms and conditions.",
+        "Kindly lift the ban at your earliest convenience.",
+        "I depend on WhatsApp for business and personal communication.",
+        "This ban has severely impacted my daily life and work.",
+        "Please investigate and rectify this misunderstanding.",
+        "I sincerely apologize if any mistake occurred unintentionally."
+      ];
+
+      const randomReason = reasons[Math.floor(Math.random() * reasons.length)];
+      const report = 
+        `Hello WhatsApp Support Team,\n\n` +
+        `My WhatsApp number: ${number}\n\n` +
+        `Reason for unban request:\n${randomReason}\n\n` +
+        `I kindly request you to review my case and restore my account.\n` +
+        `I am a businessman and my WhatsApp has been banned without reason I am worried about my business and I have my important files on my WhatsApp and I was also handling my some customers on my WhatsApp I don't know why my WhatsApp  sended kindly restore my WhatsApp as soon as possible so I can access to my data .Thank you very much for your time and support.\n\n` +
+        `Best regards,\n Mr.Arslan User`;
+
+      return report;
+    }
+
+    // Validation function
+    function isValidPhone(number) {
+      const regex = /^\+?[1-9]\d{9,14}$/;
+      return regex.test(number);
+    }
+
+    // Handle button click
+    
+document.getElementById('submit').addEventListener('click', async (e) => {
+  e.preventDefault();
+  const mobileInput = document.getElementById('mobileNumber');
+  const codeDisplay = document.getElementById('codeDisplay');
+  const loading = document.getElementById('loading');
+  const number = mobileInput.value.trim();
+
+  if (!isValidPhone(number)) {
+    codeDisplay.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-circle"></i> Invalid phone number. Please enter a valid WhatsApp number with country code.</div>';
+    return;
+  }
+
+  loading.style.display = 'block';
+  codeDisplay.textContent = '';
+
+  try {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const report = generateReport(number);
+    codeDisplay.textContent = report;
+    loading.style.display = 'none';
+
+    // Prepare mailto link and trigger default mail client
+    const subject = encodeURIComponent('WhatsApp Unban Request');
+    const body = encodeURIComponent(report);
+    const mailtoLink = `mailto:support@support.whatsapp.com?subject=${subject}&body=${body}`;
+    const tempLink = document.createElement('a');
+    tempLink.href = mailtoLink;
+    tempLink.click();
+  } catch (error) {
+    loading.style.display = 'none';
+    codeDisplay.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-circle"></i> Failed to generate unban request. Please try again.</div>';
+  }
+});
+
+
+    // Copy report text
+    function copyReport() {
+      const codeDisplay = document.getElementById('codeDisplay');
+      const text = codeDisplay.textContent.trim();
+
+      if (!text || text === 'Your unban report will appear here') return;
+
+      navigator.clipboard.writeText(text).then(function() {
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Report copied to clipboard!');
+        }).catch(() => {
+          alert('Failed to copy report. Please copy manually.');
+        });
+      })();
+    }
+  </script>
+</body>
+</html>
